@@ -1,0 +1,11 @@
+{
+  "name": "canvas-app",
+  "version": "1.0.0",
+  "description": "This is a canvas game",
+  "main": "server.js",
+  "scripts": {
+    "start": "node ./server.js"
+  },
+  "author": "vivek",
+  "license": "(GPL-3.0-or-later)"
+}
