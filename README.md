@@ -10,4 +10,5 @@ Run: `npm start`
 
 ## Play
 
-**For brick game**: h to move left and l to move right like *vim*. you can also use arrow keys.
+**For brick game**: h to move left and l to move right like **vim**. you can also use arrow keys.
+**For ping pong game**: j to move down and k to move up like **vim**. you can also use arrow keys.
