@@ -4,9 +4,17 @@ const cvs = document.querySelector("canvas");
 const ctx = cvs.getContext("2d");
 const leftBtn = document.getElementById("left");
 const rightBtn = document.getElementById("right");
+const restartBtn = document.getElementById("restart");
+/**
+ * @type {HTMLElement}
+ */
+const btns = document.querySelector(".buttons");
 
 let score = 0;
 let life = 3;
+/**
+ * @type {Brick[][]}
+ */
 let bricks = [];
 
 class Ball {
@@ -130,11 +138,27 @@ document.addEventListener("keydown", (e) => {
     paddle.moveRight();
   }
   if (e.code === "Space" && life === 0) {
+    restartBtn.style.display = "none";
+    btns.style.justifyContent = "space-between";
+    leftBtn.style.display = "inline";
+    rightBtn.style.display = "inline";
     restartGame();
   }
   if (e.code === "Space" && bricks.length <= 0) {
+    restartBtn.style.display = "none";
+    btns.style.justifyContent = "space-between";
+    leftBtn.style.display = "inline";
+    rightBtn.style.display = "inline";
     restartGame();
   }
+});
+
+restartBtn.addEventListener("click", () => {
+  restartBtn.style.display = "none";
+  btns.style.justifyContent = "space-between";
+  leftBtn.style.display = "inline";
+  rightBtn.style.display = "inline";
+  restartGame();
 });
 
 leftBtn.addEventListener("click", () => {
@@ -210,6 +234,8 @@ const initGame = () => {
 const animate = () => {
   ctx.clearRect(0, 0, cvs.width, cvs.height);
   if (life <= 0) {
+    leftBtn.style.display = "none";
+    rightBtn.style.display = "none";
     ctx.fillStyle = "#0ff";
     ctx.font = "25px";
     ctx.fillText("Game over", cvs.width / 2, cvs.height / 2);
@@ -218,7 +244,11 @@ const animate = () => {
       cvs.width / 2 - 50,
       cvs.height / 2 + 20
     );
+    btns.style.justifyContent = "center";
+    restartBtn.style.display = "inline";
   } else if (bricks.length <= 0) {
+    leftBtn.style.display = "none";
+    rightBtn.style.display = "none";
     ctx.fillStyle = "#0ff";
     ctx.font = "25px";
     ctx.fillText("You win the game", cvs.width / 2, cvs.height / 2);
@@ -227,6 +257,8 @@ const animate = () => {
       cvs.width / 2 - 50,
       cvs.height / 2 + 20
     );
+    btns.style.justifyContent = "center";
+    restartBtn.style.display = "inline";
   } else {
     initGame();
   }
