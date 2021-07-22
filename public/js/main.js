@@ -78,7 +78,7 @@ class Paddle {
    * @param {string} color
    */
   constructor(x, y, w, h, color) {
-    this.dx = 2;
+    this.dx = 5;
     this.x = x;
     this.y = y;
     this.width = w;
