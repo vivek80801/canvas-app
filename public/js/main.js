@@ -2,11 +2,11 @@
 
 const cvs = document.querySelector("canvas");
 const ctx = cvs.getContext("2d");
+const restartBtn = document.getElementById("restart");
 const leftBtn = document.getElementById("left");
 const rightBtn = document.getElementById("right");
-const restartBtn = document.getElementById("restart");
 /**
- * @type {HTMLElement}
+ * @type {HTMLButtonElement}
  */
 const btns = document.querySelector(".buttons");
 
